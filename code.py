@@ -1,30 +1,46 @@
-def are_valid_groups():
-    # get list of student numbers
-    students = int(input("Enter number of students: "))
+import timeit
+import random
+
+def copyf (i):
+    lst = list(range(i))
+    time = timeit.timeit(lambda: lst.copy())
+    return time
+
+for i in range(50,1050,50):
+    print(i, copyf(i))
+
+def rand_append():
+    for i in range(1000, 1001000, 1000):
+        print(i, append_avg())
+    print("end")
+
+def append_avg():
     lst = []
-    print ("Enter student numbers: ")
-    for i in range(students):
-        lst.append(int(input()))
+    total = 0
+    for j in range(1000):
+        r = random.randint(0, 10)
+        start = timeit.default_timer()
+        lst.append(r)
+        end = timeit.default_timer()
+        total += end - start
 
-    #get list of groups
-    groupno = int(input("Enter no of groups: "))
-    grplst = []
-    grp = []
-    c = 1
-    grouplimno = int(input("Enter group limit: "))
-    for i in range(groupno):
-        print("group: ", c)
-        for j in range(grouplimno):
-            grp.append(int(input()))
-        c += 1
-        grplst.append(grp)
-        grp = []
+    return total/1000
 
-    lst1 = sum(grplst, [])
+def lookup():
+    lst = []
+    for i in range(1000000):
+        lst.append(random.randint)
+    return lst
 
-    if sorted(lst) == sorted(lst1):
-        return True
-    else:
-        return False
-
-are_valid_groups()
+def lookup_time():
+    lsst = lookup()
+    count = 0
+    for i in range(1000, 1001000, 1000):
+        total = 0
+        for j in range(1000):
+            start = timeit.default_timer()
+            lsst[count]
+            end = timeit.default_timer()
+            total += end - start
+            count += 1
+        print(i, total/1000)
